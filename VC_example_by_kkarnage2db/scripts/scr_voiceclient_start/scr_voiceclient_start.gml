@@ -4,7 +4,7 @@ function scr_voiceclient_start()
 	
 	randomize();
 	
-	username = get_string("Enter Username: ","user_"+string(irandom(1000)));
+	username = "user_"+string(irandom(99999));
 	my_voice_id = -1;
 	
 	audioQueue = array_create(1000, -1);
@@ -59,26 +59,4 @@ function scr_voiceclient_start()
 	voice_send_buffer = buffer_create(1, buffer_grow, 1);
 	voice_write_buffer = buffer_create(1, buffer_grow, 1);
 	voice_header_buffer = buffer_create(1, buffer_grow, 1);
-
-	//connect to server
-	network_set_config(network_config_connect_timeout, 500);
-	voice_server_socket = network_create_socket(network_socket_tcp);
-	voice_server_connect = network_connect(voice_server_socket, voice_server_ip, voice_server_port);
-	
-	if (voice_server_connect < 0)
-	{
-		//connection failed
-		scr_voiceclient_stop();
-		exit;
-	}
-	else
-	{
-		connected_to_voice_server = true;
-		voice_client = true;
-		display_text  = "Voice chat Client";
-		
-		audio_debug(true);
-		
-		scr_voiceclient_send_userinfo();
-	}
 }

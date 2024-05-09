@@ -13,7 +13,7 @@ function asyncNetworkingEvent()
 	        //var _m_size   = async_load[? "size" ];
 			var _m_socket = async_load[? "socket"];
 	
-			if (voice_server == true) && (_m_port == voice_server_port)
+			if (voice_server == true) && (_m_port == server_port)
 			{
 				scr_voiceserver_userconnect(_m_socket);
 			}
@@ -30,7 +30,7 @@ function asyncNetworkingEvent()
 	        //var _m_size   = async_load[? "size" ];
 			var _m_socket = async_load[? "socket"];
 
-			if (voice_server == true) &&  (_m_port == voice_server_port) && (_m_socket != undefined)
+			if (voice_server == true) &&  (_m_port == server_port) && (_m_socket != undefined)
 			{
 				//send to all clients that user disconnected
 				scr_voiceserver_userdisconnect(_m_socket);
@@ -48,7 +48,7 @@ function asyncNetworkingEvent()
 	        var _m_size   = async_load[? "size" ];
 			var _m_socket = async_load[? "id"];
 		
-			if (_m_port == voice_server_port) && (_m_socket != undefined)
+			if (_m_port == server_port) && (_m_socket != undefined)
 			{
 				
 				//CLIENT

@@ -1,10 +1,7 @@
 function scr_voiceserver_start()
 {
-	voice_server_started = network_create_server(network_socket_tcp, voice_server_port, 1000);
-	
 	if (voice_server_started >= 0) 
 	{
-		
 		//create ds map to store connected users information
 		global.server_voice_users = ds_map_create();
 		

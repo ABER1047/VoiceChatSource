@@ -5,10 +5,39 @@ if (voice_client == false && voice_server == false)
 	{
 		//Start Application as client
 		scr_voiceclient_start();
+		
+		//connect to server
+		network_set_config(network_config_connect_timeout, 3000);
+		server = network_create_socket(network_socket_tcp);
+	
+		
+		//////////////////////////////////////////////////////////////////////////
+		voice_server_socket = server;
+		voice_server_connect = network_connect(voice_server_socket, server_ip, server_port);
+	
+		if (voice_server_connect < 0)
+		{
+			//connection failed
+			scr_voiceclient_stop();
+			exit;
+		}
+		else
+		{
+			connected_to_voice_server = true;
+			voice_client = true;
+			display_text  = "Voice chat Client";
+		
+			audio_debug(true);
+		
+			scr_voiceclient_send_userinfo();
+		}
 	}
 	else
 	if keyboard_check(ord("S"))
 	{
+		server = network_create_server(network_socket_tcp, server_port, 1000);
+		voice_server_started = server;
+		
 		//Start Application as client
 		scr_voiceserver_start();
 	}
