@@ -45,8 +45,8 @@ if (voice_client == false && voice_server == false)
 else if (voice_client == true)
 {
 	//	voice client step	
-	if (connected_to_voice_server == true)
-	{
+	//if (connected_to_voice_server == true)
+	//{
 		if keyboard_check(pushToTalkKey) 
 		{
 			if (mic_on == false && mic_set == true)
@@ -70,7 +70,7 @@ else if (voice_client == true)
 				scr_voiceclient_send_userinfo();
 			}
 		}
-	}
+	//}
 	
 	//change microphone
 	for(var i = 0; i < number_of_mics; i++)

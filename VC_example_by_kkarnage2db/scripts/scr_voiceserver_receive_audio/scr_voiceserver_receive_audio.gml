@@ -36,7 +36,9 @@ function scr_voiceserver_receive_audio(buffer, socket)
 		
 		buffer_seek(buffer, buffer_seek_relative, Len);
 		
-	} else {
+	} 
+	else 
+	{
 		//skip duplicated packet
 		buffer_seek(buffer, buffer_seek_relative, Len);	
 	}

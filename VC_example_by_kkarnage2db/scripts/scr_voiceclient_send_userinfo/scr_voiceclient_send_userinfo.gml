@@ -1,3 +1,6 @@
+
+///@param x
+///@param y
 function scr_voiceclient_send_userinfo()
 {
 	buffer_seek(voice_write_buffer, buffer_seek_start, 0);
