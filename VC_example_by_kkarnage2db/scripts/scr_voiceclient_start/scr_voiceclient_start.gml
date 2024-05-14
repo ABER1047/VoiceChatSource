@@ -1,28 +1,8 @@
 function scr_voiceclient_start()
 {
-	//init voice client
-	
-	randomize();
-	
-	username = "user_"+string(irandom(99999));
-	my_voice_id = -1;
-	
-	audioQueue = array_create(1000, -1);
-	
-	connected_to_voice_server = false;
-	
-	voice_chat_users_dsmap = ds_map_create();
 	//ds map key : server socket id
 	//ds map value : a ds map with user informations
 	
-	mic_set = false; // wether a microphone is selected or not
-	mic_id = 0; //id of the selected microphone
-	mic_on = false; //recording voice or not
-	
-	number_of_mics = audio_get_recorder_count();
-	record_info = array_create(number_of_mics, 0);
-	mic_names = array_create(number_of_mics, "");
-	show_debug_message("number of mics : " +string(number_of_mics));
 
 	//loop microphones
 	for(var i = 0; i < number_of_mics; i++)
@@ -50,7 +30,6 @@ function scr_voiceclient_start()
 		mic_id = 0;
 	}
 	
-	pushToTalkKey = ord("V"); //key used to record voice on press
 	
 	voice_packetTimeStamp = 0; //stores last audio packet timestamp, to check for duplicated audio packets
 	voice_packet_fragmented = false; //It can happen that a packet received is incomplete, in that case this variable holds the information of weither the last packet received was fragmented

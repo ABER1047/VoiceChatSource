@@ -5,7 +5,7 @@ draw_text(25,25,display_text);
 //Draw debug info
 
 //Draw for Client
-if (voice_client == true)
+if (voice_client == true || voice_server == true)
 {
 	//draw mic info
 	draw_text(25,60,"mic_id: "+string(mic_id));

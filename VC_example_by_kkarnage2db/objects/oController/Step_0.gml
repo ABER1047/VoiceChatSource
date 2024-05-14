@@ -42,7 +42,7 @@ if (voice_client == false && voice_server == false)
 		scr_voiceserver_start();
 	}
 }
-else if (voice_client == true)
+else
 {
 	//	voice client step	
 	//if (connected_to_voice_server == true)
